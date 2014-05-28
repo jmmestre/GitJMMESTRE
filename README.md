@@ -38,7 +38,18 @@ http://localhost:8585/Logistica/rest/restwebservice/consultaRota?origem=1&destin
 
 Foi realizado um tratamento de erros, onde retorna 0 para requisições bem sucedidas, e 0 para requisições
 com erros, juntamente com uma mensagem de sucesso ou não.
-                                                             
+
+----- ARQUITETURA DO SISTEMA --------------------------------------------------------------
+
+Segue abaixo as camadas com classes e suas responsabilidades:
+
+Service: Pacote onde ficam as classes que disponibilizaram os serviços para web.
+Business: Pacote onde ficam as classes que contém as regras de negocio.
+DAO: Pacote onde ficam as classes que manipulam a base de dados.
+Entity: Pacote onde ficam as classes que representam as tabelas da base de dados.
+DTO: Pacote onde ficam as classes que fazem o transporte de dados entre as camadas.
+Util: Pacote onde ficam as classes de utilidades.
+
 ----- CONFIGURAÇÃO BASE DE DADOS -----------------------------------------------
 
 A configuração da base de dados, é a seguinte:
