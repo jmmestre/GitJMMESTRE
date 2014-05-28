@@ -44,10 +44,15 @@ com erros, juntamente com uma mensagem de sucesso ou não.
 Segue abaixo as camadas com classes e suas responsabilidades:
 
 Service: Pacote onde ficam as classes que disponibilizaram os serviços para web.
+
 Business: Pacote onde ficam as classes que contém as regras de negocio.
+
 DAO: Pacote onde ficam as classes que manipulam a base de dados.
+
 Entity: Pacote onde ficam as classes que representam as tabelas da base de dados.
+
 DTO: Pacote onde ficam as classes que fazem o transporte de dados entre as camadas.
+
 Util: Pacote onde ficam as classes de utilidades.
 
 ----- CONFIGURAÇÃO BASE DE DADOS -----------------------------------------------
