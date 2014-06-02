@@ -1,12 +1,10 @@
 package com.logistica.service.impl;
 
-import java.math.BigDecimal;
-
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.logistica.business.LogisticaBusiness;
 import com.logistica.dto.MensagemDTO;
 import com.logistica.dto.RotaRequestDTO;
@@ -18,46 +16,38 @@ import com.logistica.util.ConstanteUtil;
 @Path("/restwebservice")
 public class LogisticaServiceImpl implements LogisticaService {
 
-	@GET
+	@POST
 	@Path("consultaRota")
-	@Produces("application/xml")
-	public RotaResponseDTO consultarRota(@QueryParam("origem") Integer origem, 
-			                        @QueryParam("destino") Integer destino, 
-			                        @QueryParam("autonomia") Integer autonomia,
-			                        @QueryParam("valorCombustivel") Double valorCombustivel) {
-		
-		RotaRequestDTO request = new RotaRequestDTO();
-		request.setIdOrigem(origem);
-		request.setIdDestino(destino);
-		request.setAutonomia(autonomia);
-		request.setValorCombustivel(valorCombustivel);
-		
+	public String consultarRota(String json) {
 		LogisticaBusiness logistica = new LogisticaBusiness();
 		RotaResponseDTO response = new RotaResponseDTO();
 		MensagemDTO mensagem = new MensagemDTO();
+		RotaRequestDTO request = new RotaRequestDTO();
+		Gson gson = new Gson();
 		
 		try {
-			
+			request = gson.fromJson(json,RotaRequestDTO.class);
 			response = logistica.getBestRota(request);
+			mensagem = montarMensagem(ConstanteUtil.COD_SUCESSO, ConstanteUtil.MSG_SUCESSO);
 			
-			response.setMenorCusto(calcularCusto(response.getMenorDistancia(), autonomia, valorCombustivel));
-			mensagem.setCodigoRetorno(ConstanteUtil.COD_SUCESSO);
-			mensagem.setMensagemRetorno(ConstanteUtil.MSG_SUCESSO);
+		} catch (BusinessException be) {
+			mensagem = montarMensagem(ConstanteUtil.COD_ERRO, be.getMessage());
 			
-		} catch (BusinessException e) {
-			mensagem.setCodigoRetorno(ConstanteUtil.COD_ERRO);
-			mensagem.setMensagemRetorno(e.getMessage());
+		} catch (JsonSyntaxException je) {
+			mensagem = montarMensagem(ConstanteUtil.COD_JSON, je.getMessage());
+			
 		} catch (Exception e) {
-			mensagem.setCodigoRetorno(ConstanteUtil.COD_ERRO);
-			mensagem.setMensagemRetorno(e.getMessage());
+			mensagem = montarMensagem(ConstanteUtil.COD_ERRO, e.getMessage());
 		}
 		
 		response.setMensagem(mensagem);
-		return response;
-	}
-	
-	private BigDecimal calcularCusto(Integer menorDistancia, Integer autonomia, Double valorCombustivel) {
-		return new BigDecimal(menorDistancia / autonomia * valorCombustivel);
+		return gson.toJson(response);
 	}
 
+	private MensagemDTO montarMensagem(Integer codigo, String message) {
+		MensagemDTO mensagem = new MensagemDTO();
+		mensagem.setCodigoRetorno(codigo);
+		mensagem.setMensagemRetorno(message);
+		return mensagem;
+	}
 }

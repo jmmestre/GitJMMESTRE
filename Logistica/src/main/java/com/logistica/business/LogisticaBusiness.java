@@ -1,5 +1,6 @@
 package com.logistica.business;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class LogisticaBusiness{
 		MalhaLogisticaUtil.dijkstra(cidade);
 		
 		RotaResponseDTO response = MalhaLogisticaUtil.getMenorCaminho(malha, request.getIdDestino());
+		response.setMenorCusto(calcularCusto(response.getMenorDistancia(), request.getAutonomia(), request.getValorCombustivel()));
 		response.setCidadeOrigem(cidade.getName());
 		
 		return response;
@@ -61,10 +63,6 @@ public class LogisticaBusiness{
 		}
 	}
 
-	public void addRota(RotaEntity rota) {
-		
-	}
-
 	private MalhaLogisticaBusiness criarMalha(List<CidadeEntity> listCidade, List<RotaEntity> listRota) throws BusinessException {
 
 		MalhaLogisticaBusiness malha = new MalhaLogisticaBusiness();
@@ -79,5 +77,9 @@ public class LogisticaBusiness{
 		}
 
 		return malha;
+	}
+	
+	private BigDecimal calcularCusto(Integer menorDistancia, Integer autonomia, Double valorCombustivel) {
+		return new BigDecimal(menorDistancia / autonomia * valorCombustivel);
 	}
 }
