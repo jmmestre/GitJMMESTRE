@@ -1,0 +1,38 @@
+23/04/2013 15:34:22 - New match 11348965 has started
+23/04/2013 15:36:04 - Roman killed Nick using M16
+23/04/2013 15:36:04 - Roman killed Basser using M16
+23/04/2013 15:36:04 - Basser killed Nick using M16
+23/04/2013 15:36:33 - <WORLD> killed Nick by DROWN
+23/04/2013 15:39:22 - Match 11348965 has ended
+23/04/2013 15:34:22 - New match 11348966 has started
+23/04/2013 15:36:04 - Julio killed Jane using M16
+23/04/2013 15:36:33 - Julio killed Joao by DROWN
+23/04/2013 15:36:04 - Julio killed Basser using M16
+23/04/2013 15:36:04 - Joao killed Jane using M16
+23/04/2013 15:36:04 - Joao killed Julio using M16
+23/04/2013 15:36:04 - Basser killed Jane using M16
+23/04/2013 15:39:22 - Match 11348966 has ended
+23/04/2013 15:34:22 - New match 11348969 has started
+23/04/2013 15:36:04 - Hamer killed John using M16
+23/04/2013 15:36:33 - Saber killed Hamer by DROWN
+23/04/2013 15:36:04 - Hamer killed Saber using M16
+23/04/2013 15:36:04 - Hamer killed Julio using M16
+23/04/2013 15:36:04 - Hamer killed John using M16
+23/04/2013 15:36:33 - Saber killed Hamer by DROWN
+23/04/2013 15:39:22 - Match 11348969 has ended
+23/04/2013 15:34:22 - New match 11348967 has started
+23/04/2013 15:36:04 - Fick killed Jaspion using M16
+23/04/2013 15:36:33 - Jaspion killed Fick by DROWN
+23/04/2013 15:36:33 - Bonner killed Jaspion by DROWN
+23/04/2013 15:36:33 - Bonner killed Fick by DROWN
+23/04/2013 15:36:33 - Maria killed Bob by DROWN
+23/04/2013 15:36:04 - Bob killed Fick using M16
+23/04/2013 15:39:22 - Match 11348967 has ended
+23/04/2013 15:34:22 - New match 11348968 has started
+23/04/2013 15:36:04 - Bill killed Bob using M16
+23/04/2013 15:36:33 - Sapp killed Bill by DROWN
+23/04/2013 15:36:04 - Sapp killed Bob using M16
+23/04/2013 15:36:04 - Sapp killed Bill using M16
+23/04/2013 15:36:04 - Sapp killed Jack using M16
+23/04/2013 15:36:04 - Sapp killed Bob using M16
+23/04/2013 15:39:22 - Match 11348968 has ended
